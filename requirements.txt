@@ -1,4 +1,4 @@
-Flask
-Flask-Session
-requests
-gunicorn
+Flask==3.0.2
+Flask-Session==0.6.0
+gunicorn==22.0.0
+requests==2.32.3
