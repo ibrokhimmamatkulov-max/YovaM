@@ -270,7 +270,7 @@ def api_admin_products_del(pid):
 @app.route("/webhook", methods=["POST"])
 def telegram_webhook():
     upd = request.get_json(silent=True) or {}
-        print("update:", upd)
+    print("update:", upd)
     return jsonify({"ok": True})
 
 def tg_send_api(method, data):
