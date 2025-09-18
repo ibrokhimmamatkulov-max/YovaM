@@ -20,9 +20,9 @@ app.config["SESSION_TYPE"] = "filesystem"
 app.config["SESSION_FILE_DIR"] = os.path.join(os.getcwd(), "instance", "flask_session")
 os.makedirs(app.config["SESSION_FILE_DIR"], exist_ok=True)
 app.config["SESSION_COOKIE_NAME"] = "admin_session"
-app.config["SESSION_COOKIE_PATH"] = "/admin"
-app.config["SESSION_COOKIE_SAMESITE"] = "None"
-app.config["SESSION_COOKIE_SECURE"] = True
+app.config["SESSION_COOKIE_PATH"] = "/"   # доступна на всем сайте
+app.config["SESSION_COOKIE_SAMESITE"] = "Lax"   # поддержка Safari/Chrome  
+app.config["SESSION_COOKIE_SECURE"] = True   # работает только по HTTPS
 app.config["SECRET_KEY"] = os.getenv("SESSION_SECRET", "very_secret_session_key")
 Session(app)
 
