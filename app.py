@@ -270,7 +270,11 @@ def api_admin_products_del(pid):
 @app.route("/webhook", methods=["POST"])
 def telegram_webhook():
     upd = request.get_json(silent=True) or {}
-    print("update:", upd)
+    print("update:", upd)    # оставляем для отладки
+    try:
+        handle_update(upd)
+    except Exception as e:
+        print("handle_update error:", e)
     return jsonify({"ok": True})
 
 def tg_send_api(method, data):
@@ -325,7 +329,7 @@ def handle_update(update):
             conn.close()
             tg_send_api("sendMessage", {
                 "chat_id": chat_id,
-                "text": "Укажите номер телефона и адрес для доставки:",
+                "text": "Укажите номер телефона для связи:",
                 "reply_markup": {
                     "keyboard":[
                         [{"text":"📞 Отправить номер","request_contact":True}],
