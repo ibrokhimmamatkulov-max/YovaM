@@ -267,7 +267,7 @@ def api_admin_products_del(pid):
     conn.close()
     return jsonify({"ok": True})
 
-@app.post("/webhook")
+@app.route("/webhook", methods=["POST"])
 def telegram_webhook():
     upd = request.get_json(silent=True) or {}
     try:
