@@ -270,7 +270,7 @@ def api_admin_products_del(pid):
 @app.route("/webhook", methods=["POST"])
 def telegram_webhook():
     upd = request.get_json(silent=True) or {}
-    print("RAW update:", upd)    # логируем все, что приходит 
+    print("RAW update:", upd)    # оставляем для отладки  
     try:
         handle_update(upd)
     except Exception as e:
