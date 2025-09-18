@@ -11,7 +11,7 @@ BASE_URL = os.getenv("BASE_URL", "https://yovam.onrender.com")
 WEBHOOK_URL = os.getenv("WEBHOOK_URL", f"{BASE_URL}/webhook")
 PORT = int(os.getenv("PORT", "10000"))
 
-DB_PATH = "db.sqlite"
+DB_PATH = "/var/data/db.sqlite"
 
 app = Flask(__name__, static_folder="static", static_url_path="/static")
 
