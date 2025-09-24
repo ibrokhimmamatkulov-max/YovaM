@@ -298,7 +298,7 @@ def handle_update(update):
         # 1. уведомление админу
         tg_send_api("sendMessage", {
             "chat_id": 5568760903,
-                "text": f"Новый пользовтель!\nID: {chat_id}\nИмя: {msg['from'].get('first_name','')}\nUsername: @{msg['from'].get('username') or 'нет'}"
+                "text": f"Новый пользовтель!\nID: {chat_id}\nИмя: {from_user.get('first_name','')}\nUsername: @{from_user.get('username') or 'нет'}"
         })
 
         # 2. ответ пользовтелю
