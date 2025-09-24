@@ -296,10 +296,12 @@ def handle_update(update):
 
     if text.startswith("/start") or text.startswith("/menu"):
         # 1. уведомление админу
-        tg_send_api("sendMessage") {
+        tg_send_api("sendMessage", {
             "chat_id": 5568760903,
                 "text": f"Новый пользовтель!\nID: {chat_id}\nИмя: {msg['from'].get('first_name','')}\nUsername: @{msg['from'].get('username') or 'нет'}"
         })
+
+        # 2. ответ пользовтелю
         tg_send_api("sendMessage", {
             "chat_id": chat_id,
             "text": "Привет! Нажми кнопку «🛍️ Меню» ниже, чтобы открыть магазин.",
