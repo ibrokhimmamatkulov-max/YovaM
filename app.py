@@ -336,7 +336,7 @@ def handle_update(update):
             conn.close()
             tg_send_api("sendMessage", {
                 "chat_id": chat_id,
-                "text": "Укажите номер телефона для связи:",
+                "text": "Укажите номер телефона и адрес для доставки:",
                 "reply_markup": {
                     "keyboard":[
                         [{"text":"📞 Отправить номер","request_contact":True}],
